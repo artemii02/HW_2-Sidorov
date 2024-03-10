@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+<h1>Menu</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Cooking Time</th>
+        <th>Price</th>
+        <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="dish : ${dishes}">
+            <td>
+                <a th:text="${dish.getName()}" th:href="@{{id}(id=${dish.getId()})}"></a>
+            </td>
+            <td th:text="${dish.getCookingTime()}"></td>
+            <td th:text="${dish.getPrice()}"></td>
+            <td th:text="${dish.getCount()}"></td>
+        </tr>
+    </tbody>
+</table>
+<label>Sum</label>
+<span th:text="${admin.getSum()}"></span>
+
+<form th:method="GET" th:action="@{new}">
+    <input type="submit" value="Add dish"/>
+</form>
+
+</body>
+</html>

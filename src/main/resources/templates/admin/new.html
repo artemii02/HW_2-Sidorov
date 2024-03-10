@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/admin/add}" th:object="${dish}" th:method="POST">
+    <lable>Name</lable><input type="text" name="name" th:field="*{name}"/>
+    <br/>
+    <lable>Cooking Time</lable><input type="text" name="cookingTime" th:field="*{cookingTime}"/>
+    <br/>
+    <lable>Price</lable><input type="text" name="price" th:field="*{price}"/>
+    <br/>
+    <lable>Count</lable><input type="text" name="count" th:field="*{count}"/>
+    <br/>
+    <button name="submit" type="submit">Add Dish</button>
+
+</form>
+
+</body>
+</html>

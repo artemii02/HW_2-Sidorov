@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{update/{id}(id=${dish.getId()})}">
+    <lable>Name: </lable>
+    <input type="text" name="name" th:value="${dish.name}" placeholder="New name"/><br>
+    <lable>Cooking Time: </lable>
+    <input type="text" name="cookingTime" th:value="${dish.getCookingTime() != 0 ? dish.getCookingTime() : ''}" placeholder="New cooking time"/><br>
+    <lable>Price: </lable>
+    <input type="text" name="price" th:value="${dish.getPrice() != 0 ? dish.getPrice() : ''}" placeholder="New price"/><br>
+    <lable>Count: </lable>
+    <input type="text" name="count" th:value="${dish.getCount() != 0 ? dish.getCount() : ''}" placeholder="New count"/><br>
+    <input type="submit" value="Update"/>
+</form>
+
+<lable>Sold:</lable>
+<span th:text="${dish.sold}"></span><br>
+<lable>Average estimation:</lable>
+<span th:text="${dish.avgEstimation}"></span><br>
+
+<lable>Feedback:</lable>
+<ul>
+    <li th:each="review : ${dish.feedback}" th:text="${review}"></li>
+</ul>
+
+<form th:method="DELETE" th:action="@{delete/{id}(id=${dish.getId()})}">
+  <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>
