@@ -12,5 +12,5 @@ public class RestaurantModelApplication {
 		SpringApplication.run(RestaurantModelApplication.class, args);
 	}
 
-
+//
 }
